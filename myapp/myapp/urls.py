@@ -19,5 +19,6 @@ from django.urls import path
 import myfinalapp.views as url
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("",url.home)
+    path("",url.home),
+    path("reg/",url.register)
 ]
