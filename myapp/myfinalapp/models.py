@@ -13,7 +13,7 @@ class User(models.Model):
 class Credit(models.Model):
     sum_borrowed = models.SmallIntegerField()
     interest = models.SmallIntegerField()
-    client = models.OneToOneField(User,on_delete=models.CASCADE)
+    client = models.OneToOneField(User,on_delete=models.CASCADE,default=1)
 
 
 
