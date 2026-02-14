@@ -1,14 +1,18 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 #basic user model
-class User(models.Model):
-    user_name = models.CharField(unique=False, max_length=10)
-    user_surname = models.CharField(unique=False, max_length=10)
-    user_birthday = models.DateField() #YYYY:MM:DD
+from django.db import models
+from django.contrib.auth.models import User
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    user_birthday = models.DateField()  # YYYY-MM-DD
     user_balance = models.SmallIntegerField()
-    unique_id = models.IntegerField(primary_key=True)
-    #TODO this :user_credits =
+    #TODO credits
+    def __str__(self):
+        return self.user.username
 
 class Credit(models.Model):
     sum_borrowed = models.SmallIntegerField()

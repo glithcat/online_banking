@@ -15,10 +15,13 @@
 				<div class="centerdiv" id = "login_block">
 	    			<form class="form-control" method = "post" style="padding : 20vh, 10 wh" >
 					{%csrf_token%}
+						<p>Ім'я коритувача</p>
 					<input style = "" type = "text"  name = "username"> <br>
+						<p>Пароль</p>
 					<input type = "password"  name = "password"> <br>
 					<input type = "checkbox" name = "new_account" id="new_account"> в мене нема акаунту <br>
 					<div id="new_account_field" style="display: none;">
+						<p>Ваш Email </p>
 						<input type="email" name="email" placeholder="Email"> <br>
 					</div>
 					<button type="submit" class = "btn btn-primary mt-3">login</button>
@@ -28,7 +31,12 @@
 			</div>
     	</div>
     </div>
-
+{% if error %}
+<script>
+    const errorMessage = "{{ error|escapejs }}";
+    alert(errorMessage);
+</script>
+{% endif %}
 </body>
 <script>
 	const checkbox = document.getElementById("new_account");

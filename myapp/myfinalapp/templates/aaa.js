@@ -1,4 +1,6 @@
 const checkbox = document.getElementById("new_account");
-const login_block = document.getElementById("login_block");
+const newAccountField = document.getElementById("new_account_field");
+
 checkbox.addEventListener("change", function() {
-login_block.style = this.checked ? 'login_block' : 'none';
+	newAccountField.style.display = this.checked ? 'block' : 'none';
+})
